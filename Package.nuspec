@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Web.Version</id>
+    <version>0.0.0</version>
+    <title>Web.Version</title>
+    <authors>Kevin Obee</authors>
+    <owners>Kevin Obee</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>HTTP module that reports version of web site assembly</description>
+    <summary>Reports version of web site</summary>
+    <language />
+    <projectUrl>http://kevinobee.wordpress.com/</projectUrl>
+    <tags />
+    <dependencies />
+  </metadata>
+  <files />
+</package>

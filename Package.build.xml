@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Package">
+
+  <!--
+  	****************************************
+  	* IMPORTS
+	****************************************
+  -->
+  <PropertyGroup>
+  	<MSBuildNuGetTasksPath>$(MSBuildProjectDirectory)\Tools\MSBuild.NuGet.Tasks</MSBuildNuGetTasksPath>
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildNuGetTasksPath)\MSBuild.NuGet.Tasks.Targets" />
+
+  <!--
+  	****************************************
+  	* PROPERTIES
+	****************************************
+  -->
+  <PropertyGroup Condition="'$(PackageVersion)' == ''">
+	<PackageVersion>1.0</PackageVersion>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <ApplicationName>ES.Web.Version</ApplicationName>
+	  <RootDir>$(MSBuildProjectDirectory)</RootDir>
+	  <BuildDir>$(RootDir)\Build</BuildDir>
+    <BuildArtifactsFolder>$(BuildDir)\buildartifacts</BuildArtifactsFolder>
+	  <PackageDir>$(BuildArtifactsFolder)\Package</PackageDir>
+    <ToolsDir>$(RootDir)\Tools</ToolsDir>
+
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == ''">
+    <Configuration>Release</Configuration>
+  </PropertyGroup>
+ 
+  <!--
+  	****************************************
+  	* TARGETS
+	****************************************
+  -->
+
+  <!-- CLEAN -->
+  <Target Name="Clean">
+	  <RemoveDir Directories="$(BuildArtifactsFolder)" Condition="Exists('$(BuildArtifactsFolder)')" />
+  	<RemoveDir Directories="$(PackageDir)" Condition="Exists('$(PackageDir)')" />
+	  <MakeDir Directories="$(BuildDir)" />
+  	<MakeDir Directories="$(PackageDir)" />
+  </Target>
+ 
+  <!-- COMPILE -->
+  <Target Name="Compile" DependsOnTargets="Clean">
+	<MSBuild Projects="$(RootDir)\$(ApplicationName).sln" 
+           Targets="Rebuild" 
+           Properties="Configuration=$(Configuration);Platform=Any CPU;OutDir=$(BuildArtifactsFolder)\" />
+  </Target>
+
+  <!-- PREPAIRE FILES -->
+  <Target Name="PrepairFiles" DependsOnTargets="Compile">
+    <ItemGroup>
+      <BinFiles Include="$(BuildArtifactsFolder)\*.dll" Exclude="$(BuildArtifactsFolder)\*.Test.dll;$(BuildArtifactsFolder)\*.Specs.dll" />
+      <ContentFiles Include="$(RootDir)\**\*.config.transform" />
+      <PackageFile Include="$(RootDir)\Package.nuspec" />
+    </ItemGroup>
+	<Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildArtifactsFolder)\lib" />
+  <Copy SourceFiles="@(ContentFiles)" DestinationFolder="$(BuildArtifactsFolder)\content" />
+	<Copy SourceFiles="@(PackageFile)" DestinationFolder="$(BuildArtifactsFolder)" />
+  </Target>
+
+  <!-- MANIFEST -->
+  <Target Name="Manifest" DependsOnTargets="PrepairFiles">
+	<ItemGroup>
+      <ManifestFiles Include="$(BuildArtifactsFolder)\lib\**\*;$(BuildArtifactsFolder)\content\**\*" Exclude="$(BuildArtifactsFolder)\Package.nuspec" />
+    </ItemGroup>
+	<ManifestUpdate
+		ManifestFile="$(BuildArtifactsFolder)\Package.nuspec"
+		WorkingDirectory="$(BuildArtifactsFolder)"
+		Version="$(PackageVersion)"
+	    Files="@(ManifestFiles)" />
+  </Target>
+
+  <!-- PACKAGE -->
+  <Target Name="Package" DependsOnTargets="Manifest">
+	<Pack NuGetExePath="$(RootDir)\.nuget\NuGet.exe"
+		ManifestFile="$(BuildArtifactsFolder)\Package.nuspec"
+		BasePath="$(BuildArtifactsFolder)"
+		OutputDirectory="$(PackageDir)"
+		Verbose="true" />
+  </Target>
+
+</Project>
