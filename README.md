@@ -14,3 +14,10 @@ First, [install NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
 
 
 The package is also available for [download](http://www.myget.org/F/464736178422467c8732275ec78d581c/api/v2/package/Web.Version/1.0) from [myget](http://www.myget.org).
+
+
+Creating a package from the Source
+--------------------------------
+Build the package using the [MSBuild Command Line](http://msdn.microsoft.com/en-us/library/ms164311.aspx) by invoking:
+
+	msbuild Package.build.xml
