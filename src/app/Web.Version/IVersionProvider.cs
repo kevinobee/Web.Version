@@ -1,4 +1,4 @@
-namespace ES.Web.Version
+namespace Web.Version
 {
     public interface IVersionProvider
     {

@@ -5,16 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{365CA0DE-4E33-4CAA-B55D-84CD014C698C}</ProjectGuid>
+    <ProjectGuid>{145281CF-4584-4E4C-931E-E910B74EB0EE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ES.Web.Version</RootNamespace>
-    <AssemblyName>ES.Web.Version</AssemblyName>
+    <RootNamespace>Web.Version</RootNamespace>
+    <AssemblyName>Web.Version</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,7 +38,7 @@
   <ItemGroup>
     <Compile Include="AssemblyVersionProvider.cs" />
     <Compile Include="BuildVersionModule.cs" />
-    <Compile Include="ConfigurationVersionProvider.cs" />
+    <Compile Include="Configuration\WebVersionConfiguration.cs" />
     <Compile Include="IVersionProvider.cs" />
     <Compile Include="IVersionSummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,7 +48,6 @@
     <None Include="Web.config.transform" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

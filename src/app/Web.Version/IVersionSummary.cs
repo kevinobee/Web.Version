@@ -1,6 +1,6 @@
 using System.Web;
 
-namespace ES.Web.Version
+namespace Web.Version
 {
     internal interface IVersionSummary
     {

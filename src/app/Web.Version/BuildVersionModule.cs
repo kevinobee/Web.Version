@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Web;
+using Web.Version.Configuration;
 
-namespace ES.Web.Version
+namespace Web.Version
 {
     public class BuildVersionModule : IHttpModule
     {
@@ -25,9 +26,16 @@ namespace ES.Web.Version
             {
                 if (_buildVersion == null)
                 {
-                    lock(BuildVersionLockObject)
+                    if (! string.IsNullOrEmpty(WebVersionConfiguration.Settings.ReportVersion))
                     {
-                        _buildVersion = VersionProvider.Version;
+                        _buildVersion = WebVersionConfiguration.Settings.ReportVersion;
+                    }
+                    else
+                    {
+                        lock (BuildVersionLockObject)
+                        {
+                            _buildVersion = VersionProvider.Version;
+                        }                        
                     }
                 }
                 return _buildVersion;
@@ -38,7 +46,11 @@ namespace ES.Web.Version
         public void Init(HttpApplication context)
         {
             _application = context;
-            context.EndRequest += OnEndRequest;
+
+            if (WebVersionConfiguration.Settings.Enabled)
+            {
+                context.EndRequest += OnEndRequest;
+            }
         }
 
         private void OnEndRequest(object sender, EventArgs e)

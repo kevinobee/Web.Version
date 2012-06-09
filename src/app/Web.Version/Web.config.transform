@@ -1,0 +1,28 @@
+﻿<configuration>
+  <configSections>
+    <section name="web.version" type="Web.Version.Configuration.WebVersionConfiguration" />
+  </configSections>
+  <system.web>
+    <httpModules>
+      <add name="VersionModule" type="Web.Version.BuildVersionModule, Web.Version" />
+    </httpModules>
+  </system.web>
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false" />
+    <modules>
+      <remove name="VersionModule" />
+      <add name="VersionModule" type="Web.Version.BuildVersionModule, Web.Version" preCondition="managedHandler" />
+    </modules>
+  </system.webServer>
+  <web.version enabled="true">
+    <!--
+      Listed below are other optional configuration attributes to configure web.version:
+      
+      responseHeaderEnabled="true"  : defaults to false, if specified a X-Web-Version header will be added to the HTTP response containing the web version 
+      reportVersion="1.0.0"         : used to override assembly version reporting.
+      autoHideInSeconds="5"         : if greater than 0 will set a javascript timer to automatically remove the version div from the top left of the page's HTML. 
+                                      Valid values are 0 to 60.
+      htmlDivEnabled="true"         : defaults to true. If set to false the version div will not be added to the page's HTML.
+      -->
+  </web.version>
+</configuration>
