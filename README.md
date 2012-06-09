@@ -24,3 +24,11 @@ Alternatively build the package using the [MSBuild Command Line](http://msdn.mic
 
 
 This will create compile and build the NuGet package which will be placed in the _Build\buildartifacts\Package\_ directory.
+
+
+Release History
+--------------------------------
+
+- 	**1.0** : Initial release. Supports ASP.NET web forms under .NET Framework v4.
+
+

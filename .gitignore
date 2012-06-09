@@ -71,6 +71,9 @@ local.properties
 ## Ignore build artefacts
 buildartifacts
 
+## NCrunch
+*.ncrunchsolution
+
 # Visual C++ cache files
 ipch/
 *.aps

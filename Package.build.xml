@@ -18,7 +18,7 @@
 	****************************************
   -->
   <PropertyGroup Condition="'$(PackageVersion)' == ''">
-	<PackageVersion>1.0</PackageVersion>
+	<PackageVersion>1.0.1</PackageVersion>
   </PropertyGroup>
   
   <PropertyGroup>
@@ -46,7 +46,7 @@
 	  <RemoveDir Directories="$(BuildArtifactsFolder)" Condition="Exists('$(BuildArtifactsFolder)')" />
   	<RemoveDir Directories="$(PackageDir)" Condition="Exists('$(PackageDir)')" />
 	  <MakeDir Directories="$(BuildDir)" />
-  	<MakeDir Directories="$(PackageDir)" />
+  	<MakeDir Directories="$(PackageDir)" />  
   </Target>
  
   <!-- COMPILE -->
@@ -63,7 +63,7 @@
       <ContentFiles Include="$(RootDir)\**\*.config.transform" />
       <PackageFile Include="$(RootDir)\Package.nuspec" />
     </ItemGroup>
-	<Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildArtifactsFolder)\lib" />
+	<Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildArtifactsFolder)\lib\net40" />
   <Copy SourceFiles="@(ContentFiles)" DestinationFolder="$(BuildArtifactsFolder)\content" />
 	<Copy SourceFiles="@(PackageFile)" DestinationFolder="$(BuildArtifactsFolder)" />
   </Target>

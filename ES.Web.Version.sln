@@ -5,6 +5,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{106B0954-D98
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{6A743F0C-4624-4299-82D4-4472C8B6E7C3}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		Package.build.xml = Package.build.xml
 		Package.nuspec = Package.nuspec
 	EndProjectSection
@@ -14,6 +15,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{1154DCDC-15F1-4E68-AEBA-301F86006C82}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{7DB6AAF5-62C1-4CF1-BB5F-67E2D4959346}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5B77A276-5E1C-4DB0-87CA-47319E3DA657}"
 	ProjectSection(SolutionItems) = preProject
@@ -49,7 +53,7 @@ Global
 		{6843E978-3B86-4FF7-9D06-32A6DCD4CA6F} = {1154DCDC-15F1-4E68-AEBA-301F86006C82}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		VisualSVNWorkingCopyRoot = .
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Validation.5.0.505.0\lib\NET35
+		VisualSVNWorkingCopyRoot = .
 	EndGlobalSection
 EndGlobal
