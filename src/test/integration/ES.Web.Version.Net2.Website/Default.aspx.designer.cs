@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ES.Web.Version.Website.Test
+namespace ES.Web.Version.Net2.Website
 {
 
 
-    public partial class test
+    public partial class _Default
     {
 
         /// <summary>

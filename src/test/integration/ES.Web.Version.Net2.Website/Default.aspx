@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="test.aspx.cs" Inherits="ES.Web.Version.Website.Test.test" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ES.Web.Version.Net2.Website._Default" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,8 +8,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="padding: 50px;">
-     A test page
+    <div>
+    
     </div>
     </form>
 </body>
