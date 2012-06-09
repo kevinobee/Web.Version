@@ -63,7 +63,7 @@
       <ContentFiles Include="$(RootDir)\**\*.config.transform" />
       <PackageFile Include="$(RootDir)\Package.nuspec" />
     </ItemGroup>
-	<Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildArtifactsFolder)\lib\net40" />
+	<Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildArtifactsFolder)\lib\net20" />
   <Copy SourceFiles="@(ContentFiles)" DestinationFolder="$(BuildArtifactsFolder)\content" />
 	<Copy SourceFiles="@(PackageFile)" DestinationFolder="$(BuildArtifactsFolder)" />
   </Target>

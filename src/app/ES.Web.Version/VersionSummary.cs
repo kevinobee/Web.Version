@@ -9,7 +9,7 @@ namespace ES.Web.Version
 
         public void Render(HttpResponse response, string buildVersion)
         {
-            if (string.IsNullOrWhiteSpace(buildVersion)) return;
+            if (string.IsNullOrEmpty(buildVersion)) return;
 
             var builder = new StringBuilder();
 
