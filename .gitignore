@@ -69,7 +69,7 @@ local.properties
 **/packages/ 
 
 ## Ignore build artefacts
-**/buildartifacts/**/* 
+buildartifacts
 
 # Visual C++ cache files
 ipch/

@@ -13,11 +13,14 @@ First, [install NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
     PM> Install-Package Web.Version
 
 
-The package is also available for [download](http://www.myget.org/F/464736178422467c8732275ec78d581c/api/v2/package/Web.Version/1.0) from [myget](http://www.myget.org).
+Visit the [package page](https://nuget.org/packages/Web.Version) on NuGet for more download options.
 
 
-Creating a package from the Source
---------------------------------
-Build the package using the [MSBuild Command Line](http://msdn.microsoft.com/en-us/library/ms164311.aspx) by invoking:
+### Creating a package from the Source
+
+Alternatively build the package using the [MSBuild Command Line](http://msdn.microsoft.com/en-us/library/ms164311.aspx) by invoking:
 
 	msbuild Package.build.xml
+
+
+This will create compile and build the NuGet package which will be placed in the _Build\buildartifacts\Package\_ directory.
